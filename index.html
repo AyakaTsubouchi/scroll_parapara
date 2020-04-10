@@ -34,26 +34,14 @@
       let y = 0;
 
       const img = document.createElement('img');
-      img.setAttribute('alt', `motchi`);
+      img.setAttribute('alt', 'motchi');
       let timeoutId;
       window.addEventListener('scroll', function () {
-        countUp = Math.floor(y / 100) + 1;
+        countUp = Math.floor(y / 100) % 12;
         y = window.pageYOffset;
         clearTimeout(timeoutId);
 
         timeoutId = setTimeout(function () {
-          if (y > 0 && y < 1100) {
-            null;
-          } else if (y >= 1100 && y < 2200) {
-            y -= 1100;
-          } else if (y >= 2200 && y < 3300) {
-            y -= 2200;
-          } else if (y >= 3300 && y < 4400) {
-            y -= 3300;
-          } else if (y >= 4400 && y < 5500) {
-            y -= 4400;
-          }
-
           document.getElementById('root').appendChild(img);
           img.setAttribute('src', `./images/image${countUp}.svg`);
         }, 1);
