@@ -30,21 +30,21 @@
     </div>
 
     <script>
-      let countUp = 1;
+      let countUp = 0;
       let y = 0;
 
       const img = document.createElement('img');
       img.setAttribute('alt', 'motchi');
       let timeoutId;
       window.addEventListener('scroll', function () {
-        countUp = Math.floor(y / 100) % 12;
+        countUp = Math.round(y / 100) % 12;
         y = window.pageYOffset;
         clearTimeout(timeoutId);
 
         timeoutId = setTimeout(function () {
           document.getElementById('root').appendChild(img);
           img.setAttribute('src', `./images/image${countUp}.svg`);
-        }, 1);
+        }, 10);
       });
     </script>
   </body>
