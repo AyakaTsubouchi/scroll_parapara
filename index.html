@@ -21,7 +21,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>ParaPara anime</h1>
+      <h1>Flip Book</h1>
       <p>
         Mochi jumps to your scroll.
       </p>
@@ -35,16 +35,12 @@
 
       const img = document.createElement('img');
       img.setAttribute('alt', 'motchi');
-      let timeoutId;
       window.addEventListener('scroll', function () {
-        countUp = Math.round(y / 100) % 12;
         y = window.pageYOffset;
-        clearTimeout(timeoutId);
+        countUp = Math.round(y / 100) % 12;
 
-        timeoutId = setTimeout(function () {
-          document.getElementById('root').appendChild(img);
-          img.setAttribute('src', `./images/image${countUp}.svg`);
-        }, 10);
+        document.getElementById('root').appendChild(img);
+        img.setAttribute('src', `./images/image${countUp}.svg`);
       });
     </script>
   </body>
